@@ -250,7 +250,7 @@ export default function Experience() {
                         "
                       >
                         <span className="text-sm font-medium">
-                          <Link href="https://www.linkedin.com/company/codes-for-tomorrow/posts/?feedView=all">About Startup</Link>
+                          <Link href="https://www.linkedin.com/company/codes-for-tomorrow/posts/?feedView=all">About Organization</Link>
                         </span>
 
                         <svg
