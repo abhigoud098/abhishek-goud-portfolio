@@ -26,6 +26,7 @@ import {
   SiGit,
   SiGithub,
   SiFigma,
+  SiPostman
 } from "react-icons/si";
 
 export const skillCategories: SkillCategory[] = [
@@ -144,6 +145,12 @@ export const skillCategories: SkillCategory[] = [
         name: "Redux Toolkit",
         level: 85,
         icon: SiRedux,
+      },
+
+       {
+        name: "Postmen",
+        level: 70,
+        icon: SiPostman,
       },
     ],
   },

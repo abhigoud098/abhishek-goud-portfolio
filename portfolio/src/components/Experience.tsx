@@ -98,7 +98,9 @@ export default function Experience() {
         {/* Heading */}
 
         <div className="mb-20">
-          <p className="eyebrow mb-4">EXPERIENCE</p>
+          <p className="eyebrow mb-4 font-mono tracking-[0.3em]  text-electric">
+            EXPERIENCE
+          </p>
 
           <h2
             className="

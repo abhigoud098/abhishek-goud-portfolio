@@ -5,7 +5,12 @@ import { motion } from "framer-motion";
 
 const commands = [
   { cmd: "$ whoami", output: "Abhishek Goud" },
-  { cmd: "$ role", output: "Frontend Developer" },
+  { cmd: "$ Study", output: "Electronic Communication Engineering {2025}" },
+  {
+    cmd: "$ Collage",
+    output: "Technocrats Institute Of Technology & Science, Bhopal",
+  },
+  { cmd: "$ Dev</>", output: "Frontend Developer" },
   { cmd: "$ location", output: "Indore" },
   {
     cmd: "$ mission",
@@ -52,9 +57,9 @@ export default function About() {
           </h2>
 
           <p className="mt-8 max-w-xl text-lg leading-8 text-zinc-400">
-            I enjoy crafting modern interfaces with React, Next.js, GSAP and
-            TypeScript. My focus is creating experiences that are fast,
-            interactive and memorable.
+            I build responsive and user-friendly web applications using React,
+            Next.js, TypeScript, and GSAP. I focus on writing clean,
+            maintainable code and creating smooth, performant user interfaces.
           </p>
         </div>
 
@@ -93,7 +98,7 @@ export default function About() {
                 repeat: Infinity,
                 duration: 1,
               }}
-              className="font-mono text-cyan-400"
+              className="font-mono text-electric"
             >
               █
             </motion.span>

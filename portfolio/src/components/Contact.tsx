@@ -128,7 +128,7 @@ text-center
           className="
 contact-item
 eyebrow
-mb-6
+mb-6 font-mono tracking-[0.3em]  text-electric
 "
         >
           CONTACT

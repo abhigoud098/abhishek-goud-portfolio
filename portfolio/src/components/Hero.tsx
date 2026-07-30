@@ -512,7 +512,7 @@ export default function Hero({ ready }: { ready: boolean }) {
               text-ink
               "
             >
-              15+
+              5+
             </h3>
 
             <p
