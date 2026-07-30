@@ -1,489 +1,104 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
-gsap.registerPlugin(ScrollTrigger);
-
-const STACK = [
-  "React.js",
-  "Next.js",
-  "TypeScript",
-  "Tailwind CSS",
-  "Node.js",
-  "Express.js",
-  "MongoDB",
-  "GSAP",
-  "Framer Motion",
-  "Redux Toolkit",
-];
-
-const JOURNEY = [
+const commands = [
+  { cmd: "$ whoami", output: "Abhishek Goud" },
+  { cmd: "$ role", output: "Frontend Developer" },
+  { cmd: "$ location", output: "Indore" },
   {
-    year: "2021",
-    title: "Engineering Foundation",
-    desc: "Started my journey with Electronics & Communication Engineering and developed a problem-solving mindset.",
+    cmd: "$ mission",
+    output: "Building fast, beautiful and scalable web experiences.",
   },
   {
-    year: "2023",
-    title: "Web Development Begins",
-    desc: "Started learning HTML, CSS and JavaScript while building my first interactive web experiences.",
-  },
-  {
-    year: "2024",
-    title: "Frontend Development",
-    desc: "Focused on React, Tailwind CSS and modern UI development with reusable and scalable components.",
-  },
-  {
-    year: "2025",
-    title: "Full Stack Growth",
-    desc: "Built full-stack applications using React, Next.js, Node.js, Express and MongoDB.",
-  },
-  {
-    year: "2026",
-    title: "Building Better Experiences",
-    desc: "Improving system design, animations, performance and creating production-ready digital products.",
+    cmd: "$ npm run skills",
+    output:
+      "✓ React\n✓ Next.js\n✓ TypeScript\n✓ Tailwind CSS\n✓ GSAP\n✓ Node.js",
   },
 ];
 
 export default function About() {
-  const rootRef = useRef<HTMLDivElement>(null);
-  const lineRef = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(0);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        ".terminal-line",
-        {
-          opacity: 0,
-          x: -30,
-        },
-        {
-          opacity: 1,
-          x: 0,
-          duration: 0.6,
-          stagger: 0.12,
-          scrollTrigger: {
-            trigger: ".terminal",
-            start: "top 85%",
-          },
-        },
-      );
+    const timer = setInterval(() => {
+      setVisible((prev) => {
+        if (prev >= commands.length) {
+          clearInterval(timer);
+          return prev;
+        }
+        return prev + 1;
+      });
+    }, 800);
 
-      gsap.fromTo(
-        ".journey-item",
-        {
-          opacity: 0,
-          x: -40,
-        },
-        {
-          opacity: 1,
-          x: 0,
-          duration: 0.7,
-          stagger: 0.15,
-          scrollTrigger: {
-            trigger: ".timeline",
-            start: "top 80%",
-          },
-        },
-      );
-
-      gsap.fromTo(
-        lineRef.current,
-        {
-          height: 0,
-        },
-        {
-          height: "100%",
-          duration: 2,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: ".timeline",
-            start: "top 80%",
-          },
-        },
-      );
-    }, rootRef);
-
-    return () => ctx.revert();
+    return () => clearInterval(timer);
   }, []);
 
   return (
-    <section
-      id="about"
-      ref={rootRef}
-      className="
-      relative
-      overflow-hidden
-
-      px-4
-      py-20
-
-      sm:px-8
-      sm:py-28
-      "
-    >
+    <section id="about" className="relative overflow-hidden px-6 py-32">
       {/* Background Glow */}
+      <div className="absolute left-1/2 top-20 h-80 w-80 -translate-x-1/2 rounded-full bg-cyan-500/20 blur-[140px]" />
 
-      <div
-        className="
-        absolute
-        left-1/2
-        top-20
+      <div className="relative mx-auto grid max-w-7xl items-center gap-20 lg:grid-cols-2">
+        {/* Left Side */}
+        <div>
+          <p className="mb-4 font-mono tracking-[0.3em]  text-electric">
+            ABOUT ME
+          </p>
 
-        h-72
-        w-72
-
-        -translate-x-1/2
-
-        rounded-full
-
-        bg-electric/20
-
-        blur-[120px]
-
-        sm:h-96
-        sm:w-96
-        sm:blur-[150px]
-        "
-      />
-
-      <div
-        className="
-        relative
-        mx-auto
-        max-w-6xl
-        "
-      >
-        {/* Heading */}
-
-        <div
-          className="
-          mb-12
-          text-center
-
-          sm:mb-16
-          "
-        >
-          <p className="eyebrow mb-5">ABOUT ME</p>
-
-          <h2
-            className="
-            font-display
-
-            text-3xl
-            leading-tight
-
-            font-semibold
-
-            text-ink
-
-            sm:text-5xl
-
-            md:text-6xl
-            "
-          >
-            Understanding the developer
-            <br />
-            behind the code.
+          <h2 className="text-5xl font-bold leading-tight text-white lg:text-6xl">
+            Understanding the developer behind the code.
           </h2>
+
+          <p className="mt-8 max-w-xl text-lg leading-8 text-zinc-400">
+            I enjoy crafting modern interfaces with React, Next.js, GSAP and
+            TypeScript. My focus is creating experiences that are fast,
+            interactive and memorable.
+          </p>
         </div>
 
-        <div
-          className="
-          grid
-
-          gap-10
-
-          md:gap-12
-
-          lg:grid-cols-2
-          "
+        {/* Terminal */}
+        <motion.div
+          initial={{ opacity: 0, x: 60 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="rounded-3xl border border-white/10 bg-[#0D1117] p-8 shadow-2xl"
         >
-          {/* Terminal */}
-
-          <div
-            className="
-            terminal
-
-            glass-panel
-
-            relative
-
-            overflow-hidden
-
-            p-5
-
-            sm:p-8
-            "
-          >
-            <div
-              className="
-              mb-8
-              flex
-              items-center
-              gap-2
-              "
-            >
-              <span
-                className="
-              h-3
-              w-3
-              rounded-full
-              bg-red-400
-              "
-              />
-
-              <span
-                className="
-              h-3
-              w-3
-              rounded-full
-              bg-yellow-400
-              "
-              />
-
-              <span
-                className="
-              h-3
-              w-3
-              rounded-full
-              bg-green-400
-              "
-              />
-            </div>
-
-            <div
-              className="
-              space-y-5
-
-              font-mono
-
-              text-xs
-
-              break-words
-
-              sm:text-sm
-
-              md:text-base
-              "
-            >
-              <p className="terminal-line text-ink-dim">$ whoami</p>
-
-              <p className="terminal-line text-electric">Abhishek Goud</p>
-
-              <p className="terminal-line text-ink-dim">$ role</p>
-
-              <p className="terminal-line text-violet">Frontend Developer</p>
-
-              <p className="terminal-line text-ink-dim">$ mission</p>
-
-              <p className="terminal-line text-ink">
-                Building fast, scalable and beautiful digital products.
-                <span className="animate-pulse">_</span>
-              </p>
-
-              <p className="terminal-line text-ink-dim">$ education</p>
-
-              <p className="terminal-line text-electric">
-                B.Tech Electronics & Communication Engineering
-              </p>
-
-              <p className="terminal-line text-ink-dim">$ currently_learning</p>
-
-              <p className="terminal-line text-ink">
-                System Design, Backend Architecture & Performance
-              </p>
-
-              <p className="terminal-line text-ink-dim">$ passion</p>
-
-              <p className="terminal-line text-violet">
-                UI Engineering + Creative Experiences
-              </p>
-              <p className="terminal-line mt-6 text-ink-dim">$ stack</p>
-
-              <div
-                className="
-                flex
-                flex-wrap
-                gap-2
-
-                pt-3
-
-                sm:gap-3
-                "
-              >
-                {STACK.map((item) => (
-                  <span
-                    key={item}
-                    className="
-                    rounded-full
-
-                    border
-                    border-white/10
-
-                    bg-white/5
-
-                    px-2.5
-                    py-1.5
-
-                    text-[11px]
-
-                    text-ink-dim
-
-                    sm:px-3
-                    sm:py-2
-
-                    sm:text-xs
-                    "
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
+          <div className="mb-8 flex gap-2">
+            <span className="h-3 w-3 rounded-full bg-red-500" />
+            <span className="h-3 w-3 rounded-full bg-yellow-500" />
+            <span className="h-3 w-3 rounded-full bg-green-500" />
           </div>
 
-          {/* Timeline */}
-
-          <div
-            className="
-            timeline
-
-            relative
-
-            pl-6
-
-            sm:pl-8
-            "
-          >
-            {/* Animated Line */}
-
-            <div
-              ref={lineRef}
-              className="
-              absolute
-
-              left-[5px]
-
-              top-0
-
-              w-[2px]
-
-              bg-gradient-to-b
-
-              from-electric
-
-              via-violet
-
-              to-transparent
-
-              sm:left-[7px]
-              "
-            />
-
-            {JOURNEY.map((item) => (
-              <div
-                key={item.year}
-                className="
-                journey-item
-
-                relative
-
-                mb-10
-
-                sm:mb-12
-                "
+          <div className="space-y-6 font-mono">
+            {commands.slice(0, visible).map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
               >
-                {/* Dot */}
+                <p className="text-electric/70">{item.cmd}</p>
 
-                <div
-                  className="
-                  absolute
-
-                  -left-[29px]
-
-                  top-3
-
-                  h-3.5
-
-                  w-3.5
-
-                  rounded-full
-
-                  bg-electric
-
-                  shadow-lg
-
-                  shadow-electric/50
-
-                  sm:-left-[37px]
-
-                  sm:h-4
-
-                  sm:w-4
-                  "
-                />
-
-                {/* Card */}
-
-                <div
-                  className="
-                  glass-panel
-
-                  p-5
-
-                  sm:p-6
-
-                  "
-                >
-                  <p
-                    className="
-                    font-mono
-
-                    text-sm
-
-                    text-electric
-                    "
-                  >
-                    {item.year}
-                  </p>
-
-                  <h3
-                    className="
-                    mt-2
-
-                    font-display
-
-                    text-lg
-
-                    text-ink
-
-                    sm:text-xl
-                    "
-                  >
-                    {item.title}
-                  </h3>
-
-                  <p
-                    className="
-                    mt-3
-
-                    text-sm
-
-                    leading-relaxed
-
-                    text-ink-dim
-                    "
-                  >
-                    {item.desc}
-                  </p>
-                </div>
-              </div>
+                <pre className="mt-2 whitespace-pre-wrap text-zinc-300">
+                  {item.output}
+                </pre>
+              </motion.div>
             ))}
+
+            <motion.span
+              animate={{ opacity: [0, 1, 0] }}
+              transition={{
+                repeat: Infinity,
+                duration: 1,
+              }}
+              className="font-mono text-cyan-400"
+            >
+              █
+            </motion.span>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

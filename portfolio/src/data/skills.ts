@@ -43,36 +43,36 @@ export const skillCategories: SkillCategory[] = [
 
       {
         name: "CSS3",
-        level: 92,
+        level: 85,
         icon: SiCss,
       },
 
       {
         name: "JavaScript",
-        level: 90,
+        level: 75,
         icon: SiJavascript,
       },
       {
         name: "React.js",
-        level: 88,
+        level: 70,
         icon: SiReact,
       },
 
       {
         name: "Next.js",
-        level: 82,
+        level: 60,
         icon: SiNextdotjs,
       },
 
       {
         name: "TypeScript",
-        level: 78,
+        level: 75,
         icon: SiTypescript,
       },
 
       {
         name: "Tailwind CSS",
-        level: 90,
+        level: 85,
         icon: SiTailwindcss,
       },
     ],
@@ -86,19 +86,19 @@ export const skillCategories: SkillCategory[] = [
     skills: [
       {
         name: "Node.js",
-        level: 80,
+        level: 70,
         icon: SiNodedotjs,
       },
 
       {
         name: "Express.js",
-        level: 78,
+        level: 70,
         icon: SiExpress,
       },
 
       {
         name: "MongoDB",
-        level: 75,
+        level: 65,
         icon: SiMongodb,
       },
     ],
@@ -112,37 +112,37 @@ export const skillCategories: SkillCategory[] = [
     skills: [
       {
         name: "Git",
-        level: 88,
+        level: 70,
         icon: SiGit,
       },
 
       {
         name: "GitHub",
-        level: 88,
+        level: 75,
         icon: SiGithub,
       },
 
       {
         name: "Figma",
-        level: 70,
+        level: 80,
         icon: SiFigma,
       },
 
       {
         name: "GSAP",
-        level: 75,
+        level: 70,
         icon: SiGsap,
       },
 
       {
         name: "Framer Motion",
-        level: 80,
+        level: 60,
         icon: SiFramer,
       },
 
       {
         name: "Redux Toolkit",
-        level: 78,
+        level: 85,
         icon: SiRedux,
       },
     ],

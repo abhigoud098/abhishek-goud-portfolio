@@ -26,7 +26,7 @@ export default function Skills() {
             mb-20
           "
         >
-          <p className="eyebrow">SYSTEM / SKILLS</p>
+          <p className="eyebrow text-electric font-mono tracking-[0.3em] text-[15px]">SYSTEM / SKILLS</p>
 
           <h2
             className="

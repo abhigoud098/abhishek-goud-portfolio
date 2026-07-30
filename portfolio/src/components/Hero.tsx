@@ -8,17 +8,22 @@ import { useMousePosition } from "@/hooks/useMousePosition";
 const TITLE = "Crafting Modern Web Experiences";
 
 const TECH = [
+  "Java",
+  "JavaScript",
   "React.js",
   "Next.js",
   "TypeScript",
   "Node.js",
   "MongoDB",
   "GSAP",
+  "Framer Motion",
 ];
 
 function splitWords(text: string) {
-  return text.split(" ").map((word, index) => (
-    <span key={index} className="hero-word inline-block overflow-hidden">
+  const words = text.trim().split(/\s+/);
+
+  return words.map((word, index) => (
+    <span key={index} className="hero-word inline-block overflow-hidden mr-5 mb-5">
       <span
         className="word-inner inline-block"
         style={{
@@ -28,8 +33,6 @@ function splitWords(text: string) {
       >
         {word}
       </span>
-
-      {index !== text.split(" ").length - 1 && " "}
     </span>
   ));
 }
@@ -392,13 +395,13 @@ export default function Hero({ ready }: { ready: boolean }) {
           className="
           mb-6
           font-mono
-          text-xs
+          text-[40px]
           uppercase
           tracking-[0.4em]
           text-electric
           "
         >
-          Frontend Engineer
+          Frontend Developer
         </p>
 
         <h1
@@ -414,6 +417,7 @@ export default function Hero({ ready }: { ready: boolean }) {
 
           sm:text-7xl
           lg:text-8xl
+          mt-10
           "
         >
           {splitWords(TITLE)}
@@ -429,7 +433,7 @@ export default function Hero({ ready }: { ready: boolean }) {
           gap-3
           "
         >
-          {TECH.map((tech) => (
+          {/* {TECH.map((tech) => (
             <span
               key={tech}
               className="
@@ -452,10 +456,10 @@ export default function Hero({ ready }: { ready: boolean }) {
             >
               {tech}
             </span>
-          ))}
+          ))} */}
         </div>
 
-        <p
+        {/* <p
           ref={descRef}
           className="
           mt-8
@@ -469,7 +473,7 @@ export default function Hero({ ready }: { ready: boolean }) {
           Building scalable, interactive and visually rich web applications
           using modern technologies with focus on performance, accessibility and
           user experience.
-        </p>
+        </p> */}
 
         <div
           ref={buttonsRef}
