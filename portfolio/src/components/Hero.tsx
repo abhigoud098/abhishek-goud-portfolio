@@ -23,7 +23,10 @@ function splitWords(text: string) {
   const words = text.trim().split(/\s+/);
 
   return words.map((word, index) => (
-    <span key={index} className="hero-word inline-block overflow-hidden mr-5 mb-5">
+    <span
+      key={index}
+      className="hero-word inline-block overflow-hidden mr-5 mb-5"
+    >
       <span
         className="word-inner inline-block"
         style={{
@@ -56,9 +59,10 @@ export default function Hero({ ready }: { ready: boolean }) {
     if (!ready) return;
 
     const ctx = gsap.context(() => {
-      const words = titleRef.current?.querySelectorAll(".word-inner");
+      if (!titleRef.current || !cardsRef.current) return;
 
-      const cards = cardsRef.current?.querySelectorAll(".floating-card");
+      const words = titleRef.current.querySelectorAll(".word-inner");
+      const cards = cardsRef.current.querySelectorAll(".floating-card");
 
       const tl = gsap.timeline({
         defaults: {
@@ -72,7 +76,6 @@ export default function Hero({ ready }: { ready: boolean }) {
         duration: 1,
         stagger: 0.12,
       })
-
         .fromTo(
           subtitleRef.current,
           {
@@ -86,7 +89,6 @@ export default function Hero({ ready }: { ready: boolean }) {
           },
           "-=.5",
         )
-
         .fromTo(
           techRef.current,
           {
@@ -100,7 +102,6 @@ export default function Hero({ ready }: { ready: boolean }) {
           },
           "-=.5",
         )
-
         .fromTo(
           descRef.current,
           {
@@ -114,7 +115,6 @@ export default function Hero({ ready }: { ready: boolean }) {
           },
           "-=.4",
         )
-
         .fromTo(
           buttonsRef.current,
           {
@@ -128,7 +128,6 @@ export default function Hero({ ready }: { ready: boolean }) {
           },
           "-=.4",
         )
-
         .fromTo(
           statsRef.current,
           {
@@ -142,7 +141,6 @@ export default function Hero({ ready }: { ready: boolean }) {
           },
           "-=.3",
         )
-
         .fromTo(
           cards,
           {
@@ -176,6 +174,8 @@ export default function Hero({ ready }: { ready: boolean }) {
         ease: "none",
       });
     }, rootRef);
+
+    return () => ctx.revert();
 
     return () => ctx.revert();
   }, [ready]);
