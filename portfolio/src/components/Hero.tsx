@@ -491,7 +491,7 @@ export default function Hero({ ready }: { ready: boolean }) {
           </MagneticButton>
 
           <MagneticButton href="#contact" variant="ghost">
-            Let's Connect
+            Lets Connect
           </MagneticButton>
         </div>
 

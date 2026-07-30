@@ -145,7 +145,7 @@ text-ink
 sm:text-6xl
 "
         >
-          Let's create
+          Lets create
           <br />
           <span className="grad-text">something extraordinary.</span>
         </h2>
