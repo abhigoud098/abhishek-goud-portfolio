@@ -12,8 +12,21 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    id: "shopverse",
+    id: "DevOs",
     index: "01",
+    name: "DevOS",
+    description:
+      "DevOS is a personal desktop web application built for developers who want one place to manage everything they learn.",
+    stack: ["Next.js", "Tailwind CSS", "TypeScript", "Zustand", "Dexie"],
+    image: "/devos.png",
+    liveUrl: "https://devos-t527.vercel.app/",
+    githubUrl: "https://github.com/abhigoud098/devos",
+    accent: "electric",
+  },
+
+  {
+    id: "shopverse",
+    index: "02",
     name: "ShopVerse",
     description:
       "A premium React e-commerce platform featuring product discovery, shopping cart, wishlist, API integration, responsive design, and smooth user interactions.",
@@ -26,7 +39,7 @@ export const projects: Project[] = [
 
   {
     id: "portfolio",
-    index: "02",
+    index: "03",
     name: "Portfolio",
     description:
       "A cinematic portfolio crafted with Next.js, GSAP and Framer Motion, focused on storytelling, immersive animations, and premium user experience.",
@@ -39,8 +52,8 @@ export const projects: Project[] = [
 
   {
     id: "ShopSavy",
-    index: "03",
-    name: "",
+    index: "04",
+    name: "ShopSavy",
     description:
       "ShopSavy is a lightweight web app for shop owners to manage products, orders, and inventory quickly — no notebooks, just a clean dashboard.",
     stack: ["Next.js", "RestApis", "CSS3", "MongoDB"],
@@ -52,8 +65,8 @@ export const projects: Project[] = [
 
   {
     id: "RecipeFinder",
-    index: "04",
-    name: "",
+    index: "05",
+    name: "RecipeFinder",
     description:
       "A modern and responsive recipe discovery web app powered by the DummyJSON Recipes API. Search, explore, and save your favorite recipes with a clean, intuitive interface. Built using HTML, CSS, and JavaScript without any frameworks.",
     stack: ["Next.js", "RestApis", "CSS3", "MongoDB"],
@@ -65,8 +78,8 @@ export const projects: Project[] = [
 
   {
     id: "Car Rental",
-    index: "05",
-    name: "",
+    index: "06",
+    name: "Car Rental",
     description:
       " A modern and responsive Car Rental Application built using React.js, Tailwind CSS, and JavaScript. The application allows users to browse available cars, book rentals, return rented vehicles, and share feedback through an intuitive user interface.",
     stack: ["Next.js", "RestApis", "CSS3", "MongoDB"],
